@@ -49,4 +49,4 @@
         Por más loco que suene, el entonces presidente de Estados Unidos, Ronald Reagan, era fan de la película. El actor Michael Beck (Swan) contó que Reagan lo llamó personalmente para decirle que la había visto en Camp David y le había encantado.</p>
         </article>
     </main>
-    < <?php require_once '../componentes/footer.php'; ?>
+     <?php require_once '../componentes/footer.php'; ?>
