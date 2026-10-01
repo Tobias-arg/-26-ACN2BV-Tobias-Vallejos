@@ -13,7 +13,6 @@ h2 {
     color: #b90c0c;
     font-size: 20px;
     }
-
 img:hover {
     transform: scale(1.05);
     transition: all 0.3s ease; 
@@ -155,8 +154,8 @@ footer{
     
     text-align: center;
     width:  20%;
-    min-width: 350px;
-    margin-top: 60px;
+    min-width: 300px;
+    margin-top: 5px;
     padding: 8px 15px;
 }
 /*Pandillas*/

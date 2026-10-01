@@ -1,9 +1,9 @@
     <?php require_once '../componentes/header.php'; ?>
 
     <h1>Contacto</h1>
-    <form action="Confirmacion.php">
     
     <main>
+    <form action="confirmacion.php" method="POST">
         <fieldset class="transparencia">
             <legend class="contacto">Deja tus opiniones</legend>
             <div class="input">
@@ -12,7 +12,7 @@
             </div>
             <div class="input">
                 <label for="nombre">Correo Electronico</label>
-                <input type="text" id="email" name="email" placeholder="Ingrese su Correo">
+                <input type="email" id="email" name="email" placeholder="Ingrese su Correo" required>
             </div>
              <div class="input">
                 <label for="contacto">Motivo de contacto</label>
