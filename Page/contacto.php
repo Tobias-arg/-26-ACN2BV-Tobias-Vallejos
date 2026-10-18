@@ -11,7 +11,11 @@
                 <input minlength="2" maxlength="25"   type="text" id="Nombre" name="nombre_usuario" placeholder="Ej: Swan" required >
             </div>
             <div class="input">
-                <label for="nombre">Correo Electronico</label>
+                <label for="apellido">Apellido Completo</label>
+                <input minlength="2" maxlength="25"   type="text" id="Apellido" name="apellido_usuario" placeholder="Ej: Swan" required >
+            </div>
+            <div class="input">
+                <label for="email">Correo Electronico</label>
                 <input type="email" id="email" name="email" placeholder="Ingrese su Correo" required>
             </div>
              <div class="input">
@@ -35,3 +39,5 @@
         </fieldset>
     </form>    
     </main>
+    
+<?php require_once '../componentes/footer.php'; ?>

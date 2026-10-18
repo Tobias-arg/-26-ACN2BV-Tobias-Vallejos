@@ -25,4 +25,3 @@
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4K9Ky0zs8RF0v8mo9aN4bH?utm_source=generator&theme=1&autoplay=1" width="100%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
     </header>
-</body>
