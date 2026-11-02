@@ -30,4 +30,4 @@
 
 </body>
 </html>
-< <?php require_once '/componentes/footer.php'; ?>
+< <?php require_once './componentes/footer.php'; ?>

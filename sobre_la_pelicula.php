@@ -32,4 +32,4 @@
             </div>
         </section>    
     </main>
-    < <?php require_once '/componentes/footer.php'; ?>
+    < <?php require_once './componentes/footer.php'; ?>
