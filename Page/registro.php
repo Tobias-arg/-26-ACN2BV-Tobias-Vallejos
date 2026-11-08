@@ -8,21 +8,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = trim ($_POST['email'] ?? '');
             $password = trim ($_POST['password'] ?? '');
 
- if (empty($nombre) || empty($apellido) || empty($email) || empty($password)) {
-        echo  "Por favor complete todos los campos.";
-    }
-    if (!empty($nombre) && strlen($nombre) < 2) {
-        echo "El nombre debe tener al menos 2 caracteres.";
-    }
-    if (!empty($apellido) && strlen($apellido) < 2) {
-        echo  "El apellido debe tener al menos 2 caracteres.";
-    }
-    if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo  "Ingrese un correo electrónico válido.";
-    }
-    if (!empty($password) && strlen($password) < 6) {
-        echo  "La contraseña debe tener al menos 6 caracteres.";
-    }
+if (empty($nombre) || empty($apellido) || empty($email) || empty($password)) {
+    $errores[] = "Por favor complete todos los campos.";
+}
+if (!empty($nombre) && strlen($nombre) < 2) {
+    $errores[] = "El nombre debe tener al menos 2 caracteres.";
+}
+if (!empty($apellido) && strlen($apellido) < 2) {
+    $errores[] = "El apellido debe tener al menos 2 caracteres.";
+}
+if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errores[] = "Ingrese un correo electrónico válido.";
+}
+if (!empty($password) && strlen($password) < 6) {
+    $errores[] = "La contraseña debe tener al menos 6 caracteres.";
+}
     if (empty($errores)) {
         $sqlCheck = "SELECT id FROM usuarios WHERE email = ?";
         $stmtCheck = mysqli_prepare($conexion, $sqlCheck);
@@ -47,7 +47,7 @@ if (empty($errores)) {
             header("Location: login.php");
             exit;
         } else {
-            $errores[] = "Error al registrar el usuario en la base de datos.";
+            $errores[]  "Error al registrar el usuario en la base de datos.";
         }
         mysqli_stmt_close($stmtInsert);
     }

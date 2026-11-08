@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password'] ?? '');
 
     if (empty($email) || empty($password)) {
-        echo "Por favor complete todos los campos.";
+        $errores[] = "Por favor complete todos los campos.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Ingrese un correo electrónico válido.";
+        $errores[] = "Ingrese un correo electrónico válido.";
     } else {
         $sql = "SELECT id, nombre, apellido, password FROM usuarios WHERE email = ?";
         $stmt = mysqli_prepare($conexion, $sql);
@@ -32,10 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("Location: ../index.php");
                 exit();
             } else {
-                echo "Contraseña incorrecta.";
+                $errores[] = "Contraseña incorrecta.";
             }
         } else {
-            echo "No se encontró un usuario con ese correo electrónico.";
+            $errores [] = "No se encontró un usuario con ese correo electrónico.";
         }
 
         mysqli_stmt_close($stmt);
