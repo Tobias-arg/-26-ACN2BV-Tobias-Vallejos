@@ -11,4 +11,4 @@
     
     </main>
 </body>
-< <?php require_once './componentes/footer.php'; ?>s
+<?php require_once './componentes/footer.php'?>
