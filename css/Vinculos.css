@@ -23,6 +23,17 @@ nav a {
     padding: 5px;
     text-align:left ;
 }
+nav span {
+    font-family: "WarriorsOriginal", Arial, sans-serif;
+    color: #b90c0c;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-right: 2px solid rgb(185, 12, 12);
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .nav-index {
 background-color: rgba(3, 3, 3, 0.664); 
     border:solid 6px #b90c0c;

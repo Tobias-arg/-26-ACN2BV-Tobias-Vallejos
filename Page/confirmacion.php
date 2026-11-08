@@ -2,11 +2,11 @@
 
          <?php 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nombre = $_POST['nombre_usuario'] ?? '';
-            $apellido = $_POST['apellido_usuario'] ?? $_POST['apellido'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $motivo = $_POST['contacto'] ?? '';
-            $mensaje = $_POST['mensaje_usuario'] ?? '';
+            $nombre = trim ($_POST['nombre_usuario'] ?? '');
+            $apellido = trim ($_POST['apellido_usuario'] ?? '');
+            $email = trim ($_POST['email'] ?? '');
+            $motivo = trim ($_POST['contacto'] ?? '');
+            $mensaje = trim ($_POST['mensaje_usuario'] ?? '');
         
 
         if (empty($nombre) || empty($apellido)  || empty($email) || empty($motivo) || empty($mensaje)) {
