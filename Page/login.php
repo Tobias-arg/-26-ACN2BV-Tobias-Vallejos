@@ -1,5 +1,7 @@
 <?php
-require_once '../componentes/header.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '../database/conexion.php';
 
 $mensajeExito = $_SESSION['flash_exito'] ?? '';
@@ -28,6 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario_nombre']   = $usuario['nombre'];
                 $_SESSION['usuario_apellido'] = $usuario['apellido'];
                 $_SESSION['flash_exito']      = "Inicio de sesión exitoso. ¡Bienvenido, {$usuario['nombre']}!";
+
+                if (isset($_POST['recordar'])) {
+                    setcookie('recordar_email', $email, time() + (86400 * 30), "/");
+                } else {
+                    setcookie('recordar_email', '', time() - 3600, "/");
+                }
                 
                 header("Location: ../index.php");
                 exit();
@@ -41,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_close($stmt);
     }
 }
+require_once '../componentes/header.php';
 ?>
  <h1>Iniciar Sesión</h1>
 <?php if (!empty($errores)): ?>
@@ -58,12 +67,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             <div class="input">
                 <label for="email">Correo Electronico</label>
-                <input type="email" id="email" name="email" placeholder="Ingrese su Correo" required>
+               <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_COOKIE['recordar_email'] ?? ''); ?>" placeholder="Ingrese su Correo" required>
             </div>
              <div class="input">
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" name="password" minlength="6" maxlength="50" placeholder="Mínimo 6 caracteres" required>
              </div>
+
+             <div class="recordar">
+                <input type="checkbox" id="recordar" name="recordar" value="1" <?php echo isset($_COOKIE['recordar_email']) ? 'checked' : ''; ?>>
+                <label for="recordar">Recordar mi correo electrónico</label>
+            </div>
         
             <div class="botones"> 
              <input type="submit" value="Iniciar Sesión">   

@@ -226,3 +226,22 @@ div.mensaje-error li {
     text-align: left !important;
     text-shadow: 1px 1px 2px #000;
 }
+
+/*boton de recordar mail*/
+.recordar {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.recordar label {
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recordar input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: #b90c0c;
+}
