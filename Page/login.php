@@ -43,7 +43,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
  <h1>Iniciar Sesión</h1>
-    <main>
+<?php if (!empty($errores)): ?>
+        <div class="mensaje-error">
+            <ul>
+                <?php foreach ($errores as $error): ?>
+                    <li><?php echo htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
     <form action="login.php" method="POST">
         <fieldset class="transparencia">
             <legend class="contacto">Inicia sesión en tu cuenta</legend>

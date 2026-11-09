@@ -3,10 +3,10 @@ require_once '../componentes/header.php';
 require_once '../database/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nombre = trim ($_POST['nombre_usuario'] ?? '');
-            $apellido = trim ($_POST['apellido_usuario'] ?? '');
-            $email = trim ($_POST['email'] ?? '');
-            $password = trim ($_POST['password'] ?? '');
+    $nombre = trim ($_POST['nombre_usuario'] ?? '');
+    $apellido = trim ($_POST['apellido_usuario'] ?? '');
+    $email = trim ($_POST['email'] ?? '');
+    $password = trim ($_POST['password'] ?? '');
 
 if (empty($nombre) || empty($apellido) || empty($email) || empty($password)) {
     $errores[] = "Por favor complete todos los campos.";
@@ -47,7 +47,7 @@ if (empty($errores)) {
             header("Location: login.php");
             exit;
         } else {
-            $errores[]  "Error al registrar el usuario en la base de datos.";
+            $errores[] =  "Error al registrar el usuario en la base de datos.";
         }
         mysqli_stmt_close($stmtInsert);
     }
@@ -57,6 +57,15 @@ if (empty($errores)) {
     <h1>Registro de Usuario</h1>
     
     <main>
+<?php if (!empty($errores)): ?>
+        <div class="mensaje-error">
+            <ul>
+                <?php foreach ($errores as $error): ?>
+                    <li><?php echo htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
     <form action="registro.php" method="POST">
         <fieldset class="transparencia">
             <legend class="contacto">Crea tu cuenta</legend>

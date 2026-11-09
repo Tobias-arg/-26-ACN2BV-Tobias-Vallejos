@@ -218,3 +218,11 @@ html {
     text-decoration: none;
    
 }
+/*errores de inicio de sesión*/
+div.mensaje-error li {
+    font-family: "WarriorsOriginal", Arial, sans-serif;
+    color: #b90c0c !important;
+    font-size: 40px !important;
+    text-align: left !important;
+    text-shadow: 1px 1px 2px #000;
+}
